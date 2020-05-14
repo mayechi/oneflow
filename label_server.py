@@ -99,7 +99,7 @@ def bgProcess():
                 for file in task_dict[taskId]["input"]['data']["files"]:
 #                    pdb.set_trace()
                     id_list.append(file["id"])
-                    image_path_list.append(base_path+file["url"][10:])
+                    image_path_list.append(base_path+file["url"])
                 label_list = task_dict[taskId]["input"]['data']["labels"]
                 image_num = len(image_path_list)
                 if image_num < 16:
@@ -120,7 +120,7 @@ def bgProcess():
                 print("result", result)
                 send_data = json.dumps(result).encode()
 #                logging.info(send_data)
-                url = 'http://172.16.194.75:9000/api/data/datasets/files/annotations/auto/'+taskId
+                url = 'http://10.5.18.239:8200/api/data/datasets/files/annotations/auto/'+taskId
                 headers = {'Content-Type':'application/json'}   
                 req = urllib.request.Request(url, headers=headers)
                 response = urllib.request.urlopen(req, data=send_data, timeout=5)              
