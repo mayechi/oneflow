@@ -11,21 +11,28 @@ from yolo_net import YoloPredictNet
 import oneflow_yolov3
 from oneflow_yolov3.ops.yolo_decode import yolo_predict_decoder
 
-parser = argparse.ArgumentParser(description="flags for predict")
-parser.add_argument("-g", "--gpu_num_per_node", type=int, default=1, required=False)
-parser.add_argument("-load", "--model_load_dir", type=str, default="of_model/yolov3_model_python/", required=False)
-parser.add_argument("-image_height", "--image_height", type=int, default=608, required=False)
-parser.add_argument("-image_width", "--image_width", type=int, default=608, required=False)
-parser.add_argument("-img_list", "--image_list_path", type=str, default="", required=False)
-parser.add_argument("-image_path_list", "--image_path_list", type=str, nargs='+', required=False)
-parser.add_argument("-label_to_name_file", "--label_to_name_file", default="data/coco.names", type=str, required=False)
-parser.add_argument("-batch_size", "--batch_size", type=int, default=16, required=False)
-parser.add_argument("-total_batch_num", "--total_batch_num", type=int, default=1, required=False)
-parser.add_argument("-loss_print_steps", "--loss_print_steps", type=int, default=1, required=False)
-parser.add_argument("-use_tensorrt", "--use_tensorrt", type=int, default=0, required=False)
+#parser = argparse.ArgumentParser(description="flags for predict")
+#parser.add_argument("-g", "--gpu_num_per_node", type=int, default=1, required=False)
+#parser.add_argument("-load", "--model_load_dir", type=str, default="of_model/yolov3_model_python/", required=False)
+#parser.add_argument("-image_height", "--image_height", type=int, default=608, required=False)
+#parser.add_argument("-image_width", "--image_width", type=int, default=608, required=False)
+#parser.add_argument("-img_list", "--image_list_path", type=str, default="", required=False)
+#parser.add_argument("-image_path_list", "--image_path_list", type=str, nargs='+', required=False)
+#parser.add_argument("-label_to_name_file", "--label_to_name_file", default="data/coco.names", type=str, required=False)
+#parser.add_argument("-batch_size", "--batch_size", type=int, default=16, required=False)
+#parser.add_argument("-total_batch_num", "--total_batch_num", type=int, default=1, required=False)
+#parser.add_argument("-loss_print_steps", "--loss_print_steps", type=int, default=1, required=False)
+#parser.add_argument("-use_tensorrt", "--use_tensorrt", type=int, default=0, required=False)
 
 
-args = parser.parse_args()
+#args = parser.parse_args()
+model_load_dir = "of_model/yolov3_model_python/"
+label_to_name_file = "data/coco.names"
+use_tensorrt = 0
+gpu_num_per_node = 1
+batch_size = 16
+image_height = 608
+image_width = 608
 #
 #assert os.path.exists(args.model_load_dir)
 #assert os.path.exists(args.image_path_list[0])
@@ -36,20 +43,20 @@ flow.config.load_library(oneflow_yolov3.lib_path())
 func_config = flow.FunctionConfig()
 func_config.default_distribute_strategy(flow.distribute.consistent_strategy())
 func_config.default_data_type(flow.float) 
-if args.use_tensorrt != 0:
+if use_tensorrt != 0:
     func_config.use_tensorrt(True)
 #func_config.tensorrt.use_fp16()
 
 label_2_name=[]
 
-with open(args.label_to_name_file,'r') as f:
+with open(label_to_name_file,'r') as f:
   label_2_name=f.readlines()
 
 nms=True
 print("nms:", nms)
 input_blob_def_dict = {
-    "images" : flow.FixedTensorDef((args.batch_size, 3, args.image_height, args.image_width), dtype=flow.float),
-    "origin_image_info" : flow.FixedTensorDef((args.batch_size, 2), dtype=flow.int32),
+    "images" : flow.FixedTensorDef((batch_size, 3, image_height, image_width), dtype=flow.float),
+    "origin_image_info" : flow.FixedTensorDef((batch_size, 2), dtype=flow.int32),
 }
 #img_path_list_default = ['data/default/0.jpg', 'data/default/1.jpg', 'data/default/2.jpg', 'data/default/3.jpg']
 #args.image_path_list = img_path_list_default
@@ -301,19 +308,20 @@ def coco_format(type_, id_list, file_list, result_list, label_list):
     return annotations
 class YoloInference(object):
     def __init__(self, ):
-        flow.config.gpu_device_num(args.gpu_num_per_node)
+#        pdb.set_trace()
+        flow.config.gpu_device_num(gpu_num_per_node)
         flow.env.ctrl_port(9789)
         
         check_point = flow.train.CheckPoint()
-        if not args.model_load_dir:
+        if not model_load_dir:
             check_point.init()
         else:
-            check_point.load(args.model_load_dir)        
+            check_point.load(model_load_dir)        
     def yolo_inference(self, type_, id_list, image_path_list, label_list): 
         if len(image_path_list) == 16:
 #        pdb.set_trace()
             t0 = time.time() 
-            images, origin_image_info = batch_image_preprocess_v2(image_path_list, args.image_height, args.image_width)
+            images, origin_image_info = batch_image_preprocess_v2(image_path_list, image_height, image_width)
             yolo_pos, yolo_prob, origin_image_info = yolo_user_op_eval_job(images, origin_image_info).get()  
             batch_list = batch_boxes(yolo_pos, yolo_prob, origin_image_info)   
 #            print('result:', batch_list)

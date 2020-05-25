@@ -21,8 +21,8 @@ taskInImages = {}
 base_path = "/nfs/"
 
 logging.basicConfig(level=logging.DEBUG,#控制台打印的日志级别
-                    filename='labellog.txt',
-                    filemode='a',##模式，有w和a，w就是写模式，每次都会重新写日志，覆盖之前的日志
+                    filename='./labellog.txt',
+                    filemode='w',##模式，有w和a，w就是写模式，每次都会重新写日志，覆盖之前的日志
                     #a是追加模式，默认如果不写的话，就是追加模式
                     format=
                     #'%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s'
@@ -39,8 +39,8 @@ def get_32code():
 
 class Upload:
     def GET(self):
-        x = web.input()
-        print(x)
+#        x = web.input()
+#        print(x)
         #web.header('content-type', 'text/json')
         web.header("Access-Control-Allow-Origin", "*")
         web.header("Access-Control-Allow-Credentials", "true")
@@ -55,36 +55,21 @@ class Upload:
             web.header("Access-Control-Allow-Credentials", "true")
             web.header('Access-Control-Allow-Headers',  'Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Headers, X-Requested-By, Access-Control-Allow-Methods')
             web.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE')            
-#            pdb.set_trace()
-#            type_ = 1
-#            x = web.input(_method = 'POST')
             x = web.data()
-#            logging.info(x)
-#            print("x:", x)
-#            for i, key in enumerate(x):
-#                if key == "type":
-#                    type_ = x[key]
-#                else:
-#                    y = key  
-#            y = json.loads(y)
             x = json.loads(x.decode())
             type_ = x['annotateType']
             taskId = get_code() 
             taskInImages = {}
             taskInImages[taskId] = {"input":{'type':type_, 'data':x},"output":{"annotations":[]}}
-#            print("type:", type_)
             print("Random_code:", taskId)
             logging.info(taskId)
-#            pdb.set_trace()
             web.t_queue.put(taskInImages)
-#            pdb.set_trace()
-#            print("web:", web.t_queue.queue)
             return {"code":200, "msg":"", "data":taskId}         
         except Exception as e:
-                logging.error("Error post")
-                logging.error(e)            
                 print(e)
                 print("Error Post")
+                logging.error("Error post")
+                logging.error(e)            
                 return 'post error'
 def bgProcess():
     global taskQueue
@@ -92,12 +77,10 @@ def bgProcess():
         try: 
             task_dict =  taskQueue.get()  
             for taskId in task_dict:
-#                pdb.set_trace()
                 id_list = []
                 image_path_list = []
                 type_ = task_dict[taskId]["input"]['type']
                 for file in task_dict[taskId]["input"]['data']["files"]:
-#                    pdb.set_trace()
                     id_list.append(file["id"])
                     image_path_list.append(base_path+file["url"])
                 label_list = task_dict[taskId]["input"]['data']["labels"]
@@ -106,34 +89,31 @@ def bgProcess():
                     for i in range(16-image_num):
                         image_path_list.append(image_path_list[0])
                         id_list.append(id_list[0])
+                print("image_num", image_num)
+                print("image_path_list", image_path_list) 
                 logging.info(image_num)
-                logging.info(image_path_list)
-#                print("image_num", image_num)
-                print("image_path_list", image_path_list)                
-#                print("id_list:", id_list)
-#                print("image_path_list:", image_path_list)
-#                print("label_list:", label_list)
+                logging.info(image_path_list)               
                 annotations = yolo_obj.yolo_inference(type_, id_list, image_path_list, label_list)
                 annotations = annotations[0:image_num]
-#                pdb.set_trace()
                 result = {"annotations":annotations}
                 print("result", result)
+                logging.info("result")                
                 send_data = json.dumps(result).encode()
-#                logging.info(send_data)
+
                 url = 'http://10.5.18.239:8200/api/data/datasets/files/annotations/auto/'+taskId
                 headers = {'Content-Type':'application/json'}   
                 req = urllib.request.Request(url, headers=headers)
                 response = urllib.request.urlopen(req, data=send_data, timeout=5)              
-#                pdb.set_trace()
-#                print(response.read())
+                print(response.read())
+                print("End mayechi")
                 logging.info(response.read())
                 logging.info("End mayechi")
-                print("End mayechi")
+
         except Exception as e:
+            print("Error bgProcess")
+            print(e)            
             logging.error("Error bgProcess")
             logging.error(e)
-            print("Error bgProcess")
-            print(e)
 #        pass
 #        if len(taskInImages) > 500:
 #            print('------------clear taskInImages----------------------')
