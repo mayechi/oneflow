@@ -100,7 +100,7 @@ def bgProcess():
                 logging.info("result")                
                 send_data = json.dumps(result).encode()
 
-                url = 'http://10.5.18.239:8200/api/data/datasets/files/annotations/auto/'+taskId
+                url = 'http://10.5.18.239:8100/api/data/datasets/files/annotations/auto/'+taskId
                 headers = {'Content-Type':'application/json'}   
                 req = urllib.request.Request(url, headers=headers)
                 response = urllib.request.urlopen(req, data=send_data, timeout=5)              

@@ -1,0 +1,31 @@
+Log file created at: 2020/05/26 09:31:33
+Running on machine: ai06
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0526 09:31:33.809609 52619 util.h:71] NewGlobal N7oneflow7EnvDescE
+I0526 09:31:33.815053 52619 util.h:71] NewGlobal N7oneflow10CtrlServerE
+I0526 09:31:33.825955 52619 ctrl_server.cpp:39] CtrlServer listening on 0.0.0.0:9789
+I0526 09:31:33.826045 52619 util.h:71] NewGlobal N7oneflow10CtrlClientE
+I0526 09:31:33.827113 52619 ctrl_client.cpp:187] LoadServer 127.0.0.1 Successful at 0 times
+I0526 09:31:33.827178 52619 util.h:71] NewGlobal N7oneflow10MachineCtxE
+I0526 09:31:33.827196 52619 machine_context.cpp:16] this machine id: 0
+I0526 09:31:33.843430 52619 util.h:71] NewGlobal N7oneflow12ResourceDescE
+I0526 09:31:33.843446 52619 util.h:71] NewGlobal N7oneflow6IOConfE
+I0526 09:31:33.843451 52619 util.h:71] NewGlobal N7oneflow12ProfilerConfE
+I0526 09:31:33.843454 52619 util.h:71] NewGlobal N7oneflow5IDMgrE
+I0526 09:31:33.883476 52619 util.h:71] NewGlobal N7oneflow16AvailableMemDescE
+I0526 09:31:33.883633 52619 util.h:71] NewGlobal St13unordered_mapISslSt4hashISsESt8equal_toISsESaISt4pairIKSslEEE
+I0526 09:31:33.883641 52619 util.h:71] NewGlobal N7oneflow19CriticalSectionDescE
+I0526 09:31:33.883646 52619 util.h:71] NewGlobal N7oneflow16InterUserJobInfoE
+I0526 09:31:33.883652 52619 util.h:71] NewGlobal N7oneflow22JobBuildAndInferCtxMgrE
+I0526 09:31:33.883657 52619 util.h:71] NewGlobal N7oneflow18LbiDiffWatcherInfoE
+I0526 09:31:33.883662 52619 util.h:71] NewGlobal N7oneflow16JobSetCompileCtxE
+I0526 09:31:33.883671 52619 util.h:71] NewGlobal N7oneflow26RuntimeBufferManagersScopeE
+I0526 09:31:33.883674 52619 util.h:71] NewGlobal N7oneflow9BufferMgrIlEE
+I0526 09:31:33.883677 52619 util.h:71] NewGlobal N7oneflow9BufferMgrISt10shared_ptrINS_18ForeignJobInstanceEEEE
+I0526 09:31:33.890897 52619 oneflow_internal_helper.h:79] NewGlobal N7oneflow25SessionGlobalObjectsScopeE
+I0526 09:31:33.892268 52619 util.h:71] NewGlobal N7oneflow7JobDescE
+I0526 09:31:33.892284 52619 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0526 09:31:34.548193 52619 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0526 09:31:34.548218 52619 util.h:71] NewGlobal N7oneflow7JobDescE
+I0526 09:31:34.548226 52619 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+F0526 09:31:35.016968 52619 cuda_util.cpp:79] Check failed: error == CUDNN_STATUS_SUCCESS (4 vs. 0) CUDNN_STATUS_INTERNAL_ERROR

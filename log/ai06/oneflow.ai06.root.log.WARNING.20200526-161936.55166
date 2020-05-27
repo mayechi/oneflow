@@ -1,0 +1,4 @@
+Log file created at: 2020/05/26 16:19:36
+Running on machine: ai06
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+F0526 16:19:36.805770 55166 env_desc.cpp:14] Check failed: machine_id >= 0 (-1 vs. 0) 

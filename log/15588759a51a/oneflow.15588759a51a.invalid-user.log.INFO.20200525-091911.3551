@@ -1,0 +1,28 @@
+Log file created at: 2020/05/25 09:19:11
+Running on machine: 15588759a51a
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0525 09:19:11.712311  3551 util.h:71] NewGlobal N7oneflow7EnvDescE
+I0525 09:19:11.719319  3551 util.h:71] NewGlobal N7oneflow10CtrlServerE
+I0525 09:19:11.730093  3551 ctrl_server.cpp:39] CtrlServer listening on 0.0.0.0:9789
+I0525 09:19:11.730166  3551 util.h:71] NewGlobal N7oneflow10CtrlClientE
+I0525 09:19:11.730989  3551 ctrl_client.cpp:187] LoadServer 127.0.0.1 Successful at 0 times
+I0525 09:19:11.731043  3551 util.h:71] NewGlobal N7oneflow10MachineCtxE
+I0525 09:19:11.731056  3551 machine_context.cpp:16] this machine id: 0
+I0525 09:19:11.744648  3551 util.h:71] NewGlobal N7oneflow12ResourceDescE
+I0525 09:19:11.744662  3551 util.h:71] NewGlobal N7oneflow6IOConfE
+I0525 09:19:11.744666  3551 util.h:71] NewGlobal N7oneflow12ProfilerConfE
+I0525 09:19:11.744670  3551 util.h:71] NewGlobal N7oneflow5IDMgrE
+I0525 09:19:11.744935  3551 util.h:71] NewGlobal N7oneflow16AvailableMemDescE
+I0525 09:19:11.745077  3551 util.h:71] NewGlobal St13unordered_mapISslSt4hashISsESt8equal_toISsESaISt4pairIKSslEEE
+I0525 09:19:11.745083  3551 util.h:71] NewGlobal N7oneflow19CriticalSectionDescE
+I0525 09:19:11.745086  3551 util.h:71] NewGlobal N7oneflow16InterUserJobInfoE
+I0525 09:19:11.745092  3551 util.h:71] NewGlobal N7oneflow22JobBuildAndInferCtxMgrE
+I0525 09:19:11.745095  3551 util.h:71] NewGlobal N7oneflow18LbiDiffWatcherInfoE
+I0525 09:19:11.745100  3551 util.h:71] NewGlobal N7oneflow16JobSetCompileCtxE
+I0525 09:19:11.745105  3551 util.h:71] NewGlobal N7oneflow26RuntimeBufferManagersScopeE
+I0525 09:19:11.745107  3551 util.h:71] NewGlobal N7oneflow9BufferMgrIlEE
+I0525 09:19:11.745110  3551 util.h:71] NewGlobal N7oneflow9BufferMgrISt10shared_ptrINS_18ForeignJobInstanceEEEE
+E0525 09:19:11.745318  3551 error.cpp:11] /workspace/oneflow/core/framework/load_library.cpp:9
+ Check failed: handle	 LoadLibrary ERROR! Cannot load library file: /opt/conda/envs/oneflow_bak/lib/python3.5/site-packages/oneflow_yolov3/liboneflow_yolov3.so the Error is: libdarknet.so: cannot open shared object file: No such file or directory
+I0525 09:19:11.754211  3551 session_global_objects_scope.cpp:76] maybe failed:/workspace/oneflow/core/job/session_global_objects_scope.cpp:76
+I0525 09:19:11.754218  3551 oneflow_internal_helper.h:78] maybe failed:/workspace/oneflow/python/oneflow_internal_helper.h:78

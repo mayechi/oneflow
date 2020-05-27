@@ -1,0 +1,28 @@
+Log file created at: 2020/05/26 11:03:07
+Running on machine: 15588759a51a
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0526 11:03:07.885792    60 util.h:71] NewGlobal N7oneflow7EnvDescE
+I0526 11:03:07.890816    60 util.h:71] NewGlobal N7oneflow10CtrlServerE
+I0526 11:03:07.901767    60 ctrl_server.cpp:39] CtrlServer listening on 0.0.0.0:9789
+I0526 11:03:07.901863    60 util.h:71] NewGlobal N7oneflow10CtrlClientE
+I0526 11:03:07.902868    60 ctrl_client.cpp:187] LoadServer 127.0.0.1 Successful at 0 times
+I0526 11:03:07.902957    60 util.h:71] NewGlobal N7oneflow10MachineCtxE
+I0526 11:03:07.902974    60 machine_context.cpp:16] this machine id: 0
+I0526 11:03:07.923110    60 util.h:71] NewGlobal N7oneflow12ResourceDescE
+I0526 11:03:07.923128    60 util.h:71] NewGlobal N7oneflow6IOConfE
+I0526 11:03:07.923136    60 util.h:71] NewGlobal N7oneflow12ProfilerConfE
+I0526 11:03:07.923141    60 util.h:71] NewGlobal N7oneflow5IDMgrE
+I0526 11:03:07.923483    60 util.h:71] NewGlobal N7oneflow16AvailableMemDescE
+I0526 11:03:07.923637    60 util.h:71] NewGlobal St13unordered_mapISslSt4hashISsESt8equal_toISsESaISt4pairIKSslEEE
+I0526 11:03:07.923646    60 util.h:71] NewGlobal N7oneflow19CriticalSectionDescE
+I0526 11:03:07.923651    60 util.h:71] NewGlobal N7oneflow16InterUserJobInfoE
+I0526 11:03:07.923660    60 util.h:71] NewGlobal N7oneflow22JobBuildAndInferCtxMgrE
+I0526 11:03:07.923666    60 util.h:71] NewGlobal N7oneflow18LbiDiffWatcherInfoE
+I0526 11:03:07.923673    60 util.h:71] NewGlobal N7oneflow16JobSetCompileCtxE
+I0526 11:03:07.923681    60 util.h:71] NewGlobal N7oneflow26RuntimeBufferManagersScopeE
+I0526 11:03:07.923686    60 util.h:71] NewGlobal N7oneflow9BufferMgrIlEE
+I0526 11:03:07.923691    60 util.h:71] NewGlobal N7oneflow9BufferMgrISt10shared_ptrINS_18ForeignJobInstanceEEEE
+E0526 11:03:07.924006    60 error.cpp:11] /workspace/oneflow/core/framework/load_library.cpp:9
+ Check failed: handle	 LoadLibrary ERROR! Cannot load library file: /opt/conda/envs/oneflow/lib/python3.5/site-packages/oneflow_yolov3/liboneflow_yolov3.so the Error is: /usr/lib/x86_64-linux-gnu/libcuda.so.1: file too short
+I0526 11:03:07.933866    60 session_global_objects_scope.cpp:76] maybe failed:/workspace/oneflow/core/job/session_global_objects_scope.cpp:76
+I0526 11:03:07.933881    60 oneflow_internal_helper.h:78] maybe failed:/workspace/oneflow/python/oneflow_internal_helper.h:78

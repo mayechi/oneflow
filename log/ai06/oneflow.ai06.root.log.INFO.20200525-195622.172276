@@ -1,0 +1,124 @@
+Log file created at: 2020/05/25 19:56:22
+Running on machine: ai06
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0525 19:56:22.655737 172276 util.h:71] NewGlobal N7oneflow7EnvDescE
+I0525 19:56:22.661381 172276 util.h:71] NewGlobal N7oneflow10CtrlServerE
+I0525 19:56:22.672210 172276 ctrl_server.cpp:39] CtrlServer listening on 0.0.0.0:9789
+I0525 19:56:22.672302 172276 util.h:71] NewGlobal N7oneflow10CtrlClientE
+I0525 19:56:22.673673 172276 ctrl_client.cpp:187] LoadServer 127.0.0.1 Successful at 0 times
+I0525 19:56:22.673765 172276 util.h:71] NewGlobal N7oneflow10MachineCtxE
+I0525 19:56:22.673784 172276 machine_context.cpp:16] this machine id: 0
+I0525 19:56:22.692548 172276 util.h:71] NewGlobal N7oneflow12ResourceDescE
+I0525 19:56:22.692580 172276 util.h:71] NewGlobal N7oneflow6IOConfE
+I0525 19:56:22.692587 172276 util.h:71] NewGlobal N7oneflow12ProfilerConfE
+I0525 19:56:22.692593 172276 util.h:71] NewGlobal N7oneflow5IDMgrE
+I0525 19:56:22.725414 172276 util.h:71] NewGlobal N7oneflow16AvailableMemDescE
+I0525 19:56:22.725644 172276 util.h:71] NewGlobal St13unordered_mapISslSt4hashISsESt8equal_toISsESaISt4pairIKSslEEE
+I0525 19:56:22.725653 172276 util.h:71] NewGlobal N7oneflow19CriticalSectionDescE
+I0525 19:56:22.725658 172276 util.h:71] NewGlobal N7oneflow16InterUserJobInfoE
+I0525 19:56:22.725664 172276 util.h:71] NewGlobal N7oneflow22JobBuildAndInferCtxMgrE
+I0525 19:56:22.725670 172276 util.h:71] NewGlobal N7oneflow18LbiDiffWatcherInfoE
+I0525 19:56:22.725677 172276 util.h:71] NewGlobal N7oneflow16JobSetCompileCtxE
+I0525 19:56:22.725684 172276 util.h:71] NewGlobal N7oneflow26RuntimeBufferManagersScopeE
+I0525 19:56:22.725688 172276 util.h:71] NewGlobal N7oneflow9BufferMgrIlEE
+I0525 19:56:22.725692 172276 util.h:71] NewGlobal N7oneflow9BufferMgrISt10shared_ptrINS_18ForeignJobInstanceEEEE
+I0525 19:56:22.734256 172276 oneflow_internal_helper.h:79] NewGlobal N7oneflow25SessionGlobalObjectsScopeE
+I0525 19:56:22.736675 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:22.736708 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:23.382726 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:23.382761 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:23.382771 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.569332 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:25.575708 172276 util.h:71] NewGlobal N7oneflow24InterJobReuseMemStrategyE
+I0525 19:56:25.575747 172276 util.h:71] NewGlobal N7oneflow7OneflowE
+I0525 19:56:25.584847 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.588240 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.590515 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.591949 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.591964 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.591969 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.591974 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:25.593930 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:25.593942 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:26.339032 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:26.563375 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:26.586979 172276 oneflow.cpp:137] compile time: 9.8435e+08
+I0525 19:56:26.664278 172276 oneflow.cpp:144] push_pull_plan:1.06703e+09
+I0525 19:56:26.672983 172276 oneflow.cpp:168] compile and improve time: 1.07903e+09
+I0525 19:56:26.689507 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:26.689543 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:26.689555 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:27.045241 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:27.194756 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:27.213340 172276 oneflow.cpp:137] compile time: 5.17346e+08
+I0525 19:56:27.313849 172276 oneflow.cpp:144] push_pull_plan:6.19375e+08
+I0525 19:56:27.333015 172276 oneflow.cpp:168] compile and improve time: 6.43442e+08
+I0525 19:56:27.361765 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:27.361827 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:27.361884 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:27.715276 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:27.855162 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:27.879135 172276 oneflow.cpp:137] compile time: 5.07853e+08
+I0525 19:56:27.969626 172276 oneflow.cpp:144] push_pull_plan:6.02266e+08
+I0525 19:56:27.989487 172276 oneflow.cpp:168] compile and improve time: 6.27559e+08
+I0525 19:56:28.016973 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.017078 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.017102 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.408236 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.608413 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.633414 172276 oneflow.cpp:137] compile time: 6.15935e+08
+I0525 19:56:28.713989 172276 oneflow.cpp:144] push_pull_plan:6.93988e+08
+I0525 19:56:28.722290 172276 oneflow.cpp:168] compile and improve time: 7.05159e+08
+I0525 19:56:28.737427 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.737566 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.737663 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.745323 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.749816 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.750342 172276 oneflow.cpp:137] compile time: 1.25156e+07
+I0525 19:56:28.752135 172276 oneflow.cpp:144] push_pull_plan:1.43473e+07
+I0525 19:56:28.752482 172276 oneflow.cpp:168] compile and improve time: 1.47791e+07
+I0525 19:56:28.752915 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.752949 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.752964 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.757449 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.760246 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.760540 172276 oneflow.cpp:137] compile time: 7.48826e+06
+I0525 19:56:28.761689 172276 oneflow.cpp:144] push_pull_plan:8.66304e+06
+I0525 19:56:28.761929 172276 oneflow.cpp:168] compile and improve time: 8.95053e+06
+I0525 19:56:28.762207 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.762220 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.762228 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.765777 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.767494 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.767709 172276 oneflow.cpp:137] compile time: 5.4249e+06
+I0525 19:56:28.768395 172276 oneflow.cpp:144] push_pull_plan:6.13197e+06
+I0525 19:56:28.768537 172276 oneflow.cpp:168] compile and improve time: 6.29914e+06
+I0525 19:56:28.768705 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.768725 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.768743 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.772029 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.773766 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.773978 172276 oneflow.cpp:137] compile time: 5.17299e+06
+I0525 19:56:28.774667 172276 oneflow.cpp:144] push_pull_plan:5.88058e+06
+I0525 19:56:28.774808 172276 oneflow.cpp:168] compile and improve time: 6.04851e+06
+I0525 19:56:28.775003 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.775027 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.775044 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.778280 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.780030 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.780234 172276 oneflow.cpp:137] compile time: 5.1305e+06
+I0525 19:56:28.781023 172276 oneflow.cpp:144] push_pull_plan:5.9369e+06
+I0525 19:56:28.781759 172276 oneflow.cpp:168] compile and improve time: 6.69261e+06
+I0525 19:56:28.782119 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:28.921653 172276 util.h:71] NewGlobal N7oneflow7JobDescE
+I0525 19:56:28.921798 172276 job_desc.cpp:90] Set piece_num_of_experiment_phase 19
+I0525 19:56:28.921850 172276 util.h:71] NewGlobal N7oneflow7OpGraphE
+I0525 19:56:28.935039 172276 util.h:76] DeleteGlobal N7oneflow7OpGraphE
+I0525 19:56:28.936364 172276 oneflow.cpp:137] compile time: 1.41796e+07
+I0525 19:56:28.939702 172276 oneflow.cpp:144] push_pull_plan:1.7622e+07
+I0525 19:56:28.940335 172276 oneflow.cpp:168] compile and improve time: 1.84842e+07
+I0525 19:56:28.941372 172276 util.h:76] DeleteGlobal N7oneflow7JobDescE
+I0525 19:56:29.532351 172276 util.h:71] NewGlobal N7oneflow10RuntimeCtxE
+I0525 19:56:29.535429 172276 util.h:71] NewGlobal N7oneflow15MemoryAllocatorE
+I0525 19:56:29.536651 172276 util.h:71] NewGlobal N7oneflow8RegstMgrE
+F0525 19:56:29.539949 172276 cuda_util.cpp:74] Check failed: error == cudaSuccess (2 vs. 0) out of memory
