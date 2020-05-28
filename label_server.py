@@ -17,8 +17,8 @@ import predict_with_print_box as yolo_demo
 import argparse
 
 parser = argparse.ArgumentParser(description="config for label server")
-parser.add_argument("-port", type=int, default=8080, required=False)
-parser.add_argument("-mode", type=str, default="test", required=False)
+parser.add_argument("-p", "--port", type=int, default=8080, required=False)
+parser.add_argument("-m", "--mode", type=str, default="test", required=False)
 args = parser.parse_args()
 url_json = './config/url.json'
 with open(url_json) as f:
