@@ -119,8 +119,10 @@ def bgProcess():
                 headers = {'Content-Type':'application/json'}   
                 req = urllib.request.Request(url, headers=headers)
                 response = urllib.request.urlopen(req, data=send_data, timeout=5)    
+                print(url)
                 print(response.read())
                 print("End mayechi")
+                logging.info(url)
                 logging.info(response.read())
                 logging.info("End mayechi")
 
