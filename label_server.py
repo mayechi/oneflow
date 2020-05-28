@@ -104,6 +104,7 @@ def bgProcess():
                     for i in range(16-image_num):
                         image_path_list.append(image_path_list[0])
                         id_list.append(id_list[0])
+                pdb.set_trace()
                 print("image_num", image_num)
                 print("image_path_list", image_path_list) 
                 logging.info(image_num)
@@ -112,7 +113,7 @@ def bgProcess():
                 annotations = annotations[0:image_num]
                 result = {"annotations":annotations}
                 print("result", result)
-                logging.info("result")                
+                logging.info(result)                
                 send_data = json.dumps(result).encode()               
 #                url = 'http://10.5.18.239:8100/api/data/datasets/files/annotations/auto/'+taskId
                 url = url + taskId
