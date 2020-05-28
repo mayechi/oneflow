@@ -13,9 +13,18 @@ from queue import Queue
 import time
 import random
 import json
-
 import predict_with_print_box as yolo_demo
+import argparse
 
+parser = argparse.ArgumentParser(description="config for label server")
+parser.add_argument("-port", type=int, default=8080, required=False)
+parser.add_argument("-mode", type=str, default="test", required=False)
+args = parser.parse_args()
+url_json = './config/url.json'
+with open(url_json) as f:
+    url_dict = json.loads(f.read())
+url = url_dict[args.mode]
+port = args.port
 taskQueue = Queue()
 taskInImages = {}
 base_path = "/nfs/"
@@ -73,6 +82,7 @@ class Upload:
                 return 'post error'
 def bgProcess():
     global taskQueue
+    global url
     while True:
         try: 
             task_dict =  taskQueue.get()  
@@ -98,9 +108,9 @@ def bgProcess():
                 result = {"annotations":annotations}
                 print("result", result)
                 logging.info("result")                
-                send_data = json.dumps(result).encode()
-
-                url = 'http://10.5.18.239:8100/api/data/datasets/files/annotations/auto/'+taskId
+                send_data = json.dumps(result).encode()               
+#                url = 'http://10.5.18.239:8100/api/data/datasets/files/annotations/auto/'+taskId
+                url = url + taskId
                 headers = {'Content-Type':'application/json'}   
                 req = urllib.request.Request(url, headers=headers)
                 response = urllib.request.urlopen(req, data=send_data, timeout=5)              
@@ -125,14 +135,17 @@ def bg_thread(no, interval):
     print('bg_thread on')
     bgProcess()
 
+class MyApplication(web.application):
+    def run(self, port=8080, *middleware):
+        func = self.wsgifunc(*middleware)
+        return web.httpserver.runsimple(func, ('0.0.0.0', port))
+
 if __name__ == "__main__":  
     yolo_obj = yolo_demo.YoloInference()
-   #os.system('taskkill /f /im %s' % '\"Topaz A.I. Gigapixel.exe\"')
     _thread.start_new_thread(bg_thread, (5,5))
-   #CherryPyWSGIServer.ssl_certificate = "./certificate.crt"
-   #CherryPyWSGIServer.ssl_private_key = "./privateKey.key"
-    app = web.application(urls, globals())
+#    app = web.application(urls, globals())
+    app = MyApplication(urls, globals())
     
     web.t_queue = taskQueue
     web.taskInImages = taskInImages
-    app.run()
+    app.run(port=port)
