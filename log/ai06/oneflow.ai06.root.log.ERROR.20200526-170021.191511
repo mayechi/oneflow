@@ -1,4 +1,0 @@
-Log file created at: 2020/05/26 17:00:21
-Running on machine: ai06
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-F0526 17:00:21.659588 191511 cuda_util.cpp:79] Check failed: error == CUDNN_STATUS_SUCCESS (4 vs. 0) CUDNN_STATUS_INTERNAL_ERROR

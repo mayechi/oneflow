@@ -1,4 +1,0 @@
-Log file created at: 2020/05/25 19:56:29
-Running on machine: ai06
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-F0525 19:56:29.539949 172276 cuda_util.cpp:74] Check failed: error == cudaSuccess (2 vs. 0) out of memory

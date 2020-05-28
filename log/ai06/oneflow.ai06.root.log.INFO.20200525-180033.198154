@@ -1,7 +1,0 @@
-Log file created at: 2020/05/25 18:00:33
-Running on machine: ai06
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0525 18:00:33.815691 198154 util.h:71] NewGlobal N7oneflow7EnvDescE
-I0525 18:00:33.821208 198154 util.h:71] NewGlobal N7oneflow10CtrlServerE
-I0525 18:00:33.831862 198154 ctrl_server.cpp:39] CtrlServer listening on 0.0.0.0:9789
-I0525 18:00:33.831938 198154 util.h:71] NewGlobal N7oneflow10CtrlClientE
