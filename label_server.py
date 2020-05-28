@@ -116,17 +116,21 @@ def bgProcess():
                 url = url + taskId
                 headers = {'Content-Type':'application/json'}   
                 req = urllib.request.Request(url, headers=headers)
-                response = urllib.request.urlopen(req, data=send_data, timeout=5)              
+                response = urllib.request.urlopen(req, data=send_data, timeout=5)    
+                print(url)
                 print(response.read())
                 print("End mayechi")
+                logging.info(url)
                 logging.info(response.read())
                 logging.info("End mayechi")
 
         except Exception as e:
+            print(url)
             print("Error bgProcess")
             print(e)            
             logging.error("Error bgProcess")
             logging.error(e)
+            logging.info(url)
 #        pass
 #        if len(taskInImages) > 500:
 #            print('------------clear taskInImages----------------------')
