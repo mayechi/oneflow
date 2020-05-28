@@ -41,7 +41,11 @@ logging.basicConfig(level=logging.DEBUG,#控制台打印的日志级别
                     '%(asctime)s - %(message)s'
                     #日志格式
                     )
+print('------------------------------------label server start-----------------------------')
 logging.info('------------------------------------label server start-----------------------------')
+print(url)
+logging.info(url)
+
 
 def get_code():
     return ''.join(random.sample(string.ascii_letters + string.digits, 8))
