@@ -68,13 +68,13 @@ class Upload:
             x = web.data()
             x = json.loads(x.decode())
             type_ = x['annotateType']
-            taskId = get_code() 
-            taskInImages = {}
-            taskInImages[taskId] = {"input":{'type':type_, 'data':x},"output":{"annotations":[]}}
-            print("Random_code:", taskId)
-            logging.info(taskId)
-            web.t_queue.put(taskInImages)
-            return {"code":200, "msg":"", "data":taskId}         
+            task_id = get_code() 
+            task_images = {}
+            task_images[task_id] = {"input":{'type':type_, 'data':x},"output":{"annotations":[]}}
+            print("Random_code:", task_id)
+            logging.info(task_id)
+            web.t_queue.put(task_images)
+            return {"code":200, "msg":"", "data":task_id}         
         except Exception as e:
                 print(e)
                 print("Error Post")
@@ -91,14 +91,14 @@ def bgProcess():
     while True:
         try: 
             task_dict =  taskQueue.get()  
-            for taskId in task_dict:
+            for task_id in task_dict:
                 id_list = []
                 image_path_list = []
-                type_ = task_dict[taskId]["input"]['type']
-                for file in task_dict[taskId]["input"]['data']["files"]:
+                type_ = task_dict[task_id]["input"]['type']
+                for file in task_dict[task_id]["input"]['data']["files"]:
                     id_list.append(file["id"])
                     image_path_list.append(base_path+file["url"])
-                label_list = task_dict[taskId]["input"]['data']["labels"]
+                label_list = task_dict[task_id]["input"]['data']["labels"]
                 image_num = len(image_path_list)
                 if image_num < 16:
                     for i in range(16-image_num):
@@ -115,16 +115,14 @@ def bgProcess():
                 print("result", result)
                 logging.info(result)                
                 send_data = json.dumps(result).encode()               
-#                url = 'http://10.5.18.239:8100/api/data/datasets/files/annotations/auto/'+taskId
-                taskUrl = url + taskId
+                task_url = url + task_id
                 headers = {'Content-Type':'application/json'}   
-                print("req", taskUrl)
-                req = urllib.request.Request(taskUrl, headers=headers)
+                req = urllib.request.Request(task_url, headers=headers)
                 response = urllib.request.urlopen(req, data=send_data, timeout=5)    
-                print(taskUrl)
-                print(response.read())
+                print("task_url:", task_url)
+                print("response.read():", response.read())
                 print("End mayechi")
-                logging.info(taskUrl)
+                logging.info(task_url)
                 logging.info(response.read())
                 logging.info("End mayechi")
 
