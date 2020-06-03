@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 import web
 #from web.wsgiserver import CherryPyWSGIServer
 import os
@@ -17,9 +15,6 @@ import random
 import json
 import predict_with_print_box as yolo_demo
 import argparse
-import sys
-import codecs
-sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 parser = argparse.ArgumentParser(description="config for label server")
 parser.add_argument("-p", "--port", type=int, default=8080, required=False)
